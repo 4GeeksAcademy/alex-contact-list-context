@@ -16,7 +16,7 @@ const Contacts = () => {
     return (
         <div className="container-fluid">
             <div className="d-flex justify-content-end">
-                <button className="btn btn-success" onClick={() => { navigate('/add-contact') }}>Add contact</button>
+                <button className="btn btn-success" onClick={() => { navigate('/contact-form') }}>Add contact</button>
             </div>
             <div>
             {store.contacts ? store.contacts.map(c => {

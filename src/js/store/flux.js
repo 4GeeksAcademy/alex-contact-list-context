@@ -79,6 +79,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.error(error)
 			}
 		}, 
+		handleContactEdit: async (contact) => {
+			await setStore({...getStore(), editContact: {status: true, contactToEdit: contact} })
+		},
 		updateContact: async (newData) => {
 			const resp = await fetch(`https://playground.4geeks.com/contact/agendas/alex/contacts/${newData.id}`, {
 			method: 'PUT',

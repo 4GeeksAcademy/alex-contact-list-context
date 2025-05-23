@@ -1,22 +1,20 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router";
 
 const Contact = ({ c }) => {
-    const {actions, store} = useContext(Context)
+    const navigate = useNavigate()
+    const { actions, store } = useContext(Context)
 
     const handleDelete = () => {
-        actions.deleteContact({id: c.id})
+        actions.deleteContact({ id: c.id })
 
     }
 
     const handleUpdate = () => {
-        const fullName = prompt('Enter new name')
-        const email = prompt('Enter new email')
-        const phone = prompt('Enter new phone')
-        const address = prompt('Enter new address')
+        actions.handleContactEdit(c)
+        navigate('/contact-form')
 
-
-        actions.updateContact({id: c.id, name:fullName, email:email, phone: phone, address: address})
     }
     return <div>
         <div className="card my-2" key={c.id}>
